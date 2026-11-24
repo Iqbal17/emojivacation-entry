@@ -78,6 +78,9 @@ def main() -> None:
     path = os.path.join(out_dir, "entry.txt")
     with open(path, "w", encoding="utf-8") as f:
         f.write(EMOJI)
+    with open(path, "r", encoding="utf-8") as f:
+        written = f.read()
+    assert written == EMOJI and len(written) == 1, "entry.txt must be exactly one emoji"
     print(f"Verified: {len(EMOJI)} characters, 1 emoji.")
     print(EMOJI)
 
